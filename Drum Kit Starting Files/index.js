@@ -7,6 +7,8 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var letter = this.innerHTML;
     
    makeSound(letter);
+
+   buttonAnimation(letter);
     
 })
 }
@@ -17,6 +19,8 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function(){
 document.addEventListener("keypress",function(event){
   var key = event.key;
   makeSound(key)
+
+  buttonAnimation(key)
 })
 
 function makeSound(key){
@@ -64,4 +68,17 @@ function makeSound(key){
             break;
     }
 
+}
+
+
+
+
+function buttonAnimation(currentKey){
+  var animationKey = document.querySelector("." + currentKey)
+
+ animationKey.classList.add("pressed");
+
+ setTimeout(function(){
+  animationKey.classList.remove("pressed")
+ },100);
 }
